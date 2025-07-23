@@ -10,8 +10,6 @@ const DecodedDataTable = () => {
   ), [])
   const columnNames = workbook[worksheetNames[0]]?.columnNames
 
-  //console.log({data, columnNames})
-
   return (
     data?.length ? <Table data={data} columnNames={columnNames} /> : "Upload a Spreadsheet"
   )

@@ -1,10 +1,14 @@
 import { transformDate } from './date'
 import { expandMetaDict } from './expandMetaDict'
+import { substitudeRegex } from './substitude'
+import { filterEmpty } from './filterEmpty'
 
 
 const transformerFns: Record<string, any> = {
   'transformDate': transformDate,
-  'expandMetaDict': expandMetaDict
+  'expandMetaDict': expandMetaDict,
+  'substitudeRegex': substitudeRegex,
+  'filterEmpty': filterEmpty,
 }
 
 

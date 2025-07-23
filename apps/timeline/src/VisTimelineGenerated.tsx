@@ -23,7 +23,7 @@ const VisTimelineGenerated = () => {
 
 
   return (
-    items && groups ? <VisTimeline items={items} groups={groups} /> : ""
+    items.length && groups.length ? <VisTimeline items={items} groups={groups} /> : ""
   );
 };
 
