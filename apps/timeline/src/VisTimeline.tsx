@@ -5,18 +5,23 @@ import { DataSetDataItem, Timeline, TimelineGroup, TimelineItem, TimelineOptions
 interface VisTimelineProps {
   items: TimelineItem[];
   groups: TimelineGroup[];
+  options?: TimelineOptions;
 }
 
-const VisTimeline = ({ items, groups }: VisTimelineProps) => {
+const VisTimeline = ({ items, groups, options }: VisTimelineProps) => {
   const timelineRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (timelineRef.current) {
       const data = new DataSet(items) as DataSetDataItem;
  
-      const options: TimelineOptions = {orientation: 'top', horizontalScroll: true, zoomKey: 'shiftKey'} as unknown as TimelineOptions;
+      const mergedOptions: TimelineOptions = {
+	orientation: 'top',
+	zoomKey: 'shiftKey',
+	...options
+      } as unknown as TimelineOptions;
 
-      const timeline = new Timeline(timelineRef.current, data, groups, options);
+      const timeline = new Timeline(timelineRef.current, data, groups, mergedOptions);
   
       return () => {
         timeline.destroy();

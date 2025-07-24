@@ -6,6 +6,11 @@ export interface DecoderOptions<V> {
   headerFn?: any;  // called on the decodedHeaders to retrieve a list of columnNames
   metaFn?: any;
   transformerFn?: (sheet: Record<any, V>[], meta?: any) => Record<any, V>[];
+  worksheetColumnName?: string;
+}
+
+export interface WorkbookMeta {
+  worksheetColumnName?: string;
 }
 
 export interface DecodedWorksheet {

@@ -17,7 +17,7 @@ export function transformerFn(transformations: Record<string, any>) {
     let s = sheet
     Object.entries(transformations).forEach(transformation => {
       const [fnName, options] = transformation
-      console.log("run transformation", {fnName, options})
+      //console.log("run transformation", {fnName, options})
       const fn = transformerFns[fnName]
       s = fn(s, options, meta)
     })

@@ -41,4 +41,7 @@ const transformations = {
 }
 
 
-export const decoderOptions = { headers, headerFn, metaFn, transformerFn: transformerFn(transformations) }
+const worksheetColumnName = 'Jahrgang'
+
+
+export const decoderOptions = { headers, headerFn, metaFn, transformerFn: transformerFn(transformations), worksheetColumnName }
