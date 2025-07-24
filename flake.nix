@@ -1,5 +1,5 @@
 {
-  description = "Example pnpm-nix-build";
+  description = "Unterrichtsplanung per Formswizard";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
@@ -19,32 +19,33 @@
     ];
   in {
     packages.${system} = rec {
-      nix-pnpm-demo = pkgs.stdenv.mkDerivation (finalAttrs: {
-        pname = "nix-pnpm-demo";
+      stundenplan = pkgs.stdenv.mkDerivation (finalAttrs: rec {
+        pname = "stundenplan";
         version = "0.1.0";
         src = ./.;
       
         pnpmDeps = pnpm.fetchDeps {
           inherit (finalAttrs) pname version src;
-          hash = "sha256-QFInyi6v+FuDZnta9cC5f+CDuKDQQCiplMD0Vvzvk+c=";
+          hash = "sha256-E+S8gwW1Zc4H1sX6NdMdYH/JuNohinyo8t4UA+36Dh8=";
         };
 
 	inherit nativeBuildInputs;
 
         buildPhase = ''
           runHook preBuild
-            #pnpm build
-            pnpm --filter=timeline build
+            pnpm build
+            #pnpm --filter=${pname} build
           runHook postBuild
         '';
       
         installPhase = ''
-          mkdir -p $out/timeline
-          cp -r apps/timeline/dist/* $out/timeline/
+          mkdir -p $out/${pname}
+          #cp -r apps/${pname}/dist/* $out/${pname}/
+          cp -r apps/${pname}/dist/* $out/
         '';
       });
 
-      default = nix-pnpm-demo;
+      default = stundenplan;
     };
   };
 }

@@ -6,6 +6,6 @@ export interface SubstitudeRegexOptions {
 
 export function substitudeRegex(sheet: Record<any, any>[], {column, pattern, replacement}: SubstitudeRegexOptions) {
   return sheet.map(row => (
-    {...row, [column]: row[column].replace(pattern, replacement)}
+    {...row, [column]: String(row[column]).replace(pattern, replacement)}
   ))
 }

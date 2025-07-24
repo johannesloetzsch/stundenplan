@@ -13,8 +13,8 @@ const App = () => {
   return (
     <Provider store={store}>
       <XlsxRedux decoderOptions={decoderOptions}/>
-      <DecodedDataTable /> 
       <VisTimelineGenerated />
+      <DecodedDataTable /> 
     </Provider>
   );
 };
