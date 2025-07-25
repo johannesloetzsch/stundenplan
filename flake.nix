@@ -26,22 +26,24 @@
       
         pnpmDeps = pnpm.fetchDeps {
           inherit (finalAttrs) pname version src;
-          hash = "sha256-E+S8gwW1Zc4H1sX6NdMdYH/JuNohinyo8t4UA+36Dh8=";
+          hash = "sha256-cOzpUVaz2iLJHoU0bilL+jzRBsuAQDBalpAvQV19gds=";
         };
 
 	inherit nativeBuildInputs;
 
         buildPhase = ''
           runHook preBuild
+            pnpm storybook_index  ## only works before pnpm build
             pnpm build
-            #pnpm --filter=${pname} build
+            pnpm storybook_build  ## only works after pnpm build
           runHook postBuild
         '';
       
         installPhase = ''
           mkdir -p $out/${pname}
-          #cp -r apps/${pname}/dist/* $out/${pname}/
           cp -r apps/${pname}/dist/* $out/
+          cp -r storybook-static $out/storybook
+          cp index.json $out/storybook/
         '';
       });
 

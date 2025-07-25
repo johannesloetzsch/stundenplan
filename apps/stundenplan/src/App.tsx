@@ -8,13 +8,14 @@ import VisTimelineGenerated from './VisTimelineGenerated';
 
 import { decoderOptions } from './example/afbb/einsatzplaene/decoder';
 
+
 const App = () => {
 
   return (
     <Provider store={store}>
       <XlsxRedux decoderOptions={decoderOptions}/>
       <VisTimelineGenerated />
-      <DecodedDataTable /> 
+      <DecodedDataTable />
     </Provider>
   );
 };

@@ -1,0 +1,34 @@
+import { Meta, Primary, Controls, Story } from '@storybook/addon-docs/blocks';
+import * as Table from './Table.stories.tsx';
+
+<Meta of={Table} />
+
+
+# Table
+
+`Table` is a high level Component based on [TanStack Table](https://tanstack.com/table/latest) and [MaterialReactTable](https://www.material-react-table.com/docs/)
+
+<Primary />
+
+ 
+## Props
+ 
+<Controls />
+
+### `data`
+The content to be displayed in the table is provided by the `data` property. It is supposed to be an Array of Rows, each being an object.
+
+### `columns` (optional)
+
+Definitions of `columns` can be defined as [`MRT_ColumnDef[]`](https://www.material-react-table.com/docs/examples/basic).
+
+When opmitted, `Table` uses the keys of the first entry of `data`.
+
+
+## Features
+
+### ColumnFilters
+
+An enhanced verson of [MRT ColumnFiltering](https://www.material-react-table.com/docs/guides/column-filtering) is provided:
+
+`onColumnFiltersChange`, the filtered (and sorted) rows are stored at `filteredRows` of `tableSlice`.

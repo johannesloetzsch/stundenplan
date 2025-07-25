@@ -1,10 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { tableReducer } from 'table'
-import workbookReducer from './workbookSlice'
+import tableReducer from './tableSlice'
 
 export const store = configureStore({
   reducer: {
-    workbook: workbookReducer,
     table: tableReducer
   },
 })

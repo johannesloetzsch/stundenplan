@@ -1,0 +1,23 @@
+{
+  "name": "table",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./index.tsx",
+  "types": "./index.tsx",
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
+    "material-react-table": "^3.2.1",
+    "react": "^19.0.0",
+    "react-redux": "^9.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.8",
+    "globals": "^15.14.0",
+    "tsconfig": "workspace:*",
+    "typescript": "~5.7.2"
+  }
+}

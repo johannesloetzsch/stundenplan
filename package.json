@@ -1,12 +1,22 @@
 {
-  "name": "nix-pnpm-demo",
+  "name": "stundenplan_monorepo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "turbo run build"
+    "dev": "cd apps/stundenplan; pnpm dev",
+    "build": "turbo run build",
+    "storybook": "storybook dev -p 6006",
+    "storybook_index": "storybook index",
+    "storybook_build": "storybook build"
   },
   "devDependencies": {
-    "nix-pnpm-demo": "link:",
+    "@storybook/addon-a11y": "^9.0.18",
+    "@storybook/addon-docs": "^9.0.18",
+    "@storybook/react-vite": "^9.0.18",
+    "prop-types": "^15.8.1",
+    "resolve": "^1.22.10",
+    "storybook": "^9.0.18",
+    "stundenplan": "link:",
     "turbo": "^2.4.2"
   },
   "packageManager": "pnpm@9.15.5"
