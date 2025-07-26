@@ -33,7 +33,7 @@
 
         buildPhase = ''
           runHook preBuild
-            pnpm storybook_index  ## only works before pnpm build
+            #pnpm storybook_index  ## only works before pnpm build when dist is not excluded
             pnpm build
             pnpm storybook_build  ## only works after pnpm build
           runHook postBuild
@@ -43,7 +43,7 @@
           mkdir -p $out/${pname}
           cp -r apps/${pname}/dist/* $out/
           cp -r storybook-static $out/storybook
-          cp index.json $out/storybook/
+          #cp index.json $out/storybook/
         '';
       });
 
